@@ -162,3 +162,37 @@
   .profile-ring, .profile-orbit, .profile-spark { animation: none !important; }
   .profile-image-wrap, .profile-image-wrap img { transition: none !important; }
 }
+
+/* Mobile Overflow Fix */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    max-width: 100%;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
