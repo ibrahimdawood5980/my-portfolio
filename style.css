@@ -3,6 +3,209 @@
 @media(max-width:680px){.section-wrap{width:min(100% - 32px,560px)}.site-header{height:68px;padding:0 16px}.menu-toggle{display:block;margin-left:auto;margin-right:12px}.header-cta{padding:9px 12px;font-size:10px}.nav-links{display:none;position:absolute;top:68px;left:0;right:0;padding:18px 22px;background:#08152b;border-bottom:1px solid #203b60;flex-direction:column;gap:15px}.nav-links.open{display:flex}.hero{display:block;padding-top:45px;padding-bottom:55px}.hero h1{font-size:44px}.hero h2{font-size:23px}.hero-art{height:270px;margin-top:20px}.code-window{width:85%}.hero-bottom{bottom:8px}.section-heading{display:block}.section-intro{margin-top:12px}.journey-section,.projects-section,.skills-section{padding-top:48px}.journey-grid,.project-grid.three,.project-grid.two{grid-template-columns:1fr}.journey-card{min-height:0}.project-grid.four{grid-template-columns:repeat(2,1fr)}.project-visual{height:150px}.skills-grid{grid-template-columns:repeat(3,1fr)}.summary-card{grid-template-columns:1fr;padding:23px}.contact-inner{display:block;padding-block:35px}.contact-inner .btn{margin-top:10px}.footer-inner{padding-block:22px;flex-wrap:wrap}.footer-inner>p{order:3;width:100%;margin:0}.group-heading h3{font-size:17px}}
 @media(max-width:390px){.hero h1{font-size:38px}.project-grid.four{grid-template-columns:1fr}.skills-grid{grid-template-columns:repeat(2,1fr)}.tech-pills span{font-size:10px}}
 
+.contact-section {
+    position: relative;
+    padding: 100px 20px;
+    background: #080b12;
+    overflow: hidden;
+}
+
+.contact-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+/* CONTACT TEXT */
+
+.contact-inner > div:first-child {
+    flex: 1;
+}
+
+.section-label {
+    color: #00eaff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.contact-inner h2 {
+    color: #fff;
+    font-size: clamp(32px, 5vw, 55px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.contact-inner h2 span {
+    color: #00eaff;
+    text-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+}
+
+.contact-inner p {
+    color: #aab3c5;
+    line-height: 1.8;
+}
+
+.contact-email {
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.contact-email a {
+    color: #00eaff;
+    text-decoration: none;
+    transition: 0.3s ease;
+    overflow-wrap: anywhere;
+}
+
+.contact-email a:hover {
+    color: #fff;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+
+/* ===== CONTACT PROFILE RING FIX ===== */
+
+.contact-profile {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* OUTER GLOW RING */
+
+.ring-one {
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-top-color: #00eaff;
+    border-right-color: #007bff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0,234,255,.5);
+    animation: outerRotate 8s linear infinite;
+}
+
+/* SECOND RING */
+
+.ring-three {
+    position: absolute;
+    inset: 15px;
+    border: 2px dashed rgba(0,234,255,.7);
+    border-radius: 50%;
+    animation: innerRotate 12s linear infinite;
+}
+
+/* ROTATING TEXT OUTSIDE IMAGE */
+
+.orbit-text {
+    position: absolute;
+    width: 370px;
+    height: 370px;
+    inset: -35px;
+    overflow: visible;
+    z-index: 5;
+    pointer-events: none;
+    animation: textRotate 25s linear infinite;
+}
+
+.orbit-text text {
+    fill: #00eaff;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+/* CENTER IMAGE */
+
+.contact-profile img {
+    position: relative;
+    z-index: 3;
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #00eaff;
+    box-shadow:
+        0 0 15px #00eaff,
+        0 0 35px rgba(0,234,255,.5);
+    transition: transform .7s ease,
+                box-shadow .7s ease;
+}
+
+/* IMAGE HOVER */
+
+.contact-profile:hover img {
+    transform: scale(1.10);
+    box-shadow:
+        0 0 20px #00eaff,
+        0 0 50px #00eaff,
+        0 0 80px rgba(0,234,255,.5);
+}
+
+/* GLOW DOTS */
+
+.orbit-dot {
+    position: absolute;
+    z-index: 6;
+    width: 11px;
+    height: 11px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow:
+        0 0 8px #00eaff,
+        0 0 20px #00eaff;
+}
+
+.dot-one {
+    top: 5px;
+    right: 35px;
+    animation: dotGlow 2s infinite;
+}
+
+.dot-two {
+    bottom: 5px;
+    left: 35px;
+    animation: dotGlow 2s infinite 1s;
+}
+
+/* SEPARATE ANIMATIONS */
+
+@keyframes outerRotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes innerRotate {
+    to { transform: rotate(-360deg); }
+}
+
+@keyframes textRotate {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes dotGlow {
+    50% {
+        transform: scale(1.7);
+        opacity: .5;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px) {
+    .contact-profile {
+        transform: scale(.85);
+        margin: 0 auto;
+    }
+}
+
 /* WhatsApp Floating Button */
 .whatsapp-float {
   position: fixed;
