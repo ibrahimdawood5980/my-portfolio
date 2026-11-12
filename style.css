@@ -27,6 +27,31 @@
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
 }
 
+/* Mobile Horizontal Overflow Fix */
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    img,
+    video,
+    iframe {
+        max-width: 100%;
+    }
+}
+
+
 .whatsapp-float svg {
   display: block;
 }
